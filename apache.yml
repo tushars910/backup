@@ -1,0 +1,26 @@
+#APACHE.yml
+ - hosts: 192.168.3.20
+
+   tasks:
+   - name: install Apache
+     yum: name=httpd state=installed
+   - name: install EPEL
+     yum: pkg=epel-release state=installed
+   - name: istall php
+     yum: pkg=php state=installed
+   - name: install php mysql
+     yum: pkg=php-mysql state=installed
+   - name: Install php fpm
+     yum: pkg=php-fpm state=installed
+     # service: name=mysqld state=started enabled=yes
+   - name: Upload Defalut index.php
+     copy: src=info.php dest=/var/www/html/ mode=0644
+
+   handlers:
+   - name: start httpd
+     service: name=httpd state=started enabled=yes
+   - name: start mysql
+     service: name=mysqld state=started enabled=yes
+~                                                                                  
+~                                                                                  
+~                               

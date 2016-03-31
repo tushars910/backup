@@ -1,0 +1,56 @@
+#playbook.yml
+-hosts: all
+
+  user: root
+  #sudo: yes
+
+  vars:
+
+    password0 : bapg3eZNLW12.
+    user0: barak_obama
+
+    password : geu3nRVeyVo0Q
+    user: george_bush
+
+    password1 : bi5PByNv8pDwM
+    user1: bill_clinton
+
+    password2 : rowysZo74Pfr2
+    user2: ronald_reagan
+
+    password3 : jin4Zpx3gfq4I
+    user3: jimmy_carter
+
+    password4 : geu3nRVeyVo0Q
+    user4: gerald_ford
+
+  tasks:
+    - name: add user
+      action: user name={{ user0 }} comment="barak_obama" password={{ password0 }} update_password=always
+                   group=Independents state=present
+
+    - name: add user
+      action: user name={{ user }} comment="Geaorge W Bush" password={{ password }} update_password=always
+                   group=Independents state=present
+
+    - name: add user
+      action: user name={{ user1 }} comment="Bill Clinton" password={{ password1 }} update_password=always
+                   group=Democrats state=present
+
+    - name: add user
+      action: user name={{ user2 }} comment="Ronald Regan" password={{ password2 }} update_password=always
+                   group=Republicans state=present
+
+    - name: add user
+      action: user name={{ user3 }} comment="Jimmy Carter" password={{ password3 }} update_password=always
+                   group=Democrats state=present
+
+    - name: add user
+      action: user name={{ user4 }} comment="Gerald Ford" password={{ password4 }} update_password=always
+                   group=Republicans state=present
+
+
+      tags:
+        - user
+~                                                                                                                                                                                                        
+~                                      
